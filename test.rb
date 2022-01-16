@@ -39,13 +39,13 @@ class TestFiles < Minitest::Test
 
   def test_empty
     File.write(@input_filename, '')
-    reverse_file(@input_filename, @output_filename)
+    FileUtil.reverse_file(@input_filename, @output_filename)
     assert_path_exists(@output_filename)
   end
 
   def test_file
     File.write(@input_filename, INPUT)
-    reverse_file(@input_filename, @output_filename)
+    FileUtil.reverse_file(@input_filename, @output_filename)
     assert_path_exists @output_filename
     assert_equal OUTPUT, File.read(@output_filename)
   end
